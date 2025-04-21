@@ -35,7 +35,7 @@ using namespace GameSolver::Connect4;
 int main(int argc, char** argv) {
   Solver solver;
   bool weak = false;
-  bool analyze = false;
+  bool analyze = true;
 
   std::string opening_book = "7x6.book";
   for(int i = 1; i < argc; i++) {

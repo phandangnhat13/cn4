@@ -1,0 +1,17 @@
+# Build artifacts
+*.o
+*.exe
+server
+
+# Git
+.git
+.gitignore
+
+# IDE
+.vscode
+.idea
+
+# Others
+*.md
+Dockerfile
+.dockerignore 

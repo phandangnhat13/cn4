@@ -24,7 +24,7 @@ using namespace GameSolver::Connect4;
 
 namespace GameSolver {
 namespace Connect4 {
-
+const int Solver::INVALID_MOVE;
 /**
  * Reccursively score connect 4 position using negamax variant of alpha-beta algorithm.
  * @param: position to evaluate, this function assumes nobody already won and

@@ -1,0 +1,10 @@
+^C:\USERS\LAPTOP\ONEDRIVE\DESKTOP\PY\CN4C++\CONNECT4\BUILD\CMAKEFILES\3C98DDD7B5143A5EA42A9D0BD9A68AC6\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/LAPTOP/OneDrive/Desktop/py/cn4c++/connect4 -BC:/Users/LAPTOP/OneDrive/Desktop/py/cn4c++/connect4/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/LAPTOP/OneDrive/Desktop/py/cn4c++/connect4/build/connect4_server.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

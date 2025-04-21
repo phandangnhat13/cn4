@@ -1,0 +1,3 @@
+C:/Users/LAPTOP/OneDrive/Desktop/py/cn4c++/connect4/build/CMakeFiles/connect4_server.dir
+C:/Users/LAPTOP/OneDrive/Desktop/py/cn4c++/connect4/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/LAPTOP/OneDrive/Desktop/py/cn4c++/connect4/build/CMakeFiles/ZERO_CHECK.dir

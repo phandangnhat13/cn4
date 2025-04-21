@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\LAPTOP\OneDrive\Desktop\py\cn4c++\connect4\build\CMakeFiles\3c98ddd7b5143a5ea42a9d0bd9a68ac6\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{7E7CEEE9-AFB5-3A85-BED1-0C949693D837}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
