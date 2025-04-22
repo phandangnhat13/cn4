@@ -41,17 +41,17 @@ The server will start listening on port 8080.
 **Request Body:**
 ```json
 {
-    "board": number[][],        
-    "current_player": number,   
-    "valid_moves": number[],   
-    "is_new_game": boolean     
+    "board": number[][],
+    "current_player": number,
+    "valid_moves": number[],
+    "is_new_game": boolean
 }
 ```
 
 **Response:**
 ```json
 {
-    "move": number  
+    "move": number
 }
 ```
 
