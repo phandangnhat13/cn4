@@ -11,6 +11,8 @@
 #include <algorithm>
 #include <sstream>
 #include <cstdlib>
+#include <ctime>
+#include <random>
 
 using json = nlohmann::json;
 using namespace GameSolver::Connect4;
@@ -175,13 +177,27 @@ int getBestMove(int current_player, const std::vector<int>& valid_moves) {
     }
     std::cout << std::endl;
 
-    // Tìm nước đi tốt nhất
-    int best_col = valid_moves[0];
+    // Tìm điểm số cao nhất trong các nước đi hợp lệ
+    int best_score = scores[valid_moves[0]];
     for(int move : valid_moves) {
-        if(scores[move] > scores[best_col]) {
-            best_col = move;
+        if(scores[move] > best_score) {
+            best_score = scores[move];
         }
     }
+
+    // Tìm tất cả các cột có điểm bằng điểm cao nhất
+    std::vector<int> best_moves;
+    for(int move : valid_moves) {
+        if(scores[move] == best_score) {
+            best_moves.push_back(move);
+        }
+    }
+
+    // Random chọn một trong các cột tốt nhất
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(0, best_moves.size() - 1);
+    int best_col = best_moves[dis(gen)];
 
     // Cập nhật trạng thái
     position.playCol(best_col);
@@ -199,13 +215,14 @@ int getBestMove(int current_player, const std::vector<int>& valid_moves) {
     if(is_game_over(previous_board)) {
         std::cout << "I win. Game over detected. Resetting state." << std::endl;
         reset_state();
-        // return -1;
+        return -1;
     }
 
     auto end = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
     std::cout << "Analysis took " << duration.count() << "ms" << std::endl;
     std::cout << "Selected move: " << best_col << " with score: " << scores[best_col] << std::endl;
+    std::cout << "Number of equally good moves: " << best_moves.size() << std::endl;
 
     return best_col;
 }
