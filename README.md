@@ -36,19 +36,43 @@ The server will start listening on port 8080.
 
 ### POST /api/connect4-move
 
-Makes an AI move in the Connect4 game.
+**Method:** POST
 
-Request body:
+**Request Body:**
 ```json
 {
-    "board": [[0,0,0,...], [0,0,0,...], ...],
-    "current_player": 1,
-    "valid_moves": [0,1,2,3,4,5,6]
+    "board": number[][],        // Mảng 2D (6x7) thể hiện trạng thái bàn cờ hiện tại
+    "current_player": number,   // 1: đi trước, 2: đi sau
+    "valid_moves": number[],    // Mảng các cột có thể đi được (0-6)
+    "is_new_game": boolean     // true nếu là lượt đầu tiên của ván mới
 }
 ```
 
-Response body:
+**Response:**
 ```json
+{
+    "move": number    // Cột sẽ đi (0-6)
+}
+```
+
+**Example:**
+```json
+// Request
+{
+    "board": [
+        [0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,1,0,0,0,0]
+    ],
+    "current_player": 2,
+    "valid_moves": [0,1,2,3,4,5,6],
+    "is_new_game": false
+}
+
+// Response
 {
     "move": 3
 }
