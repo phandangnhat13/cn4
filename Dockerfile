@@ -1,25 +1,28 @@
-# Dùng image có GCC sẵn, không Fortran
-FROM gcc:latest
+FROM ubuntu:22.04
 
-# Thư mục làm việc
-WORKDIR /app
+# Thiết lập môi trường cơ bản
+ENV DEBIAN_FRONTEND=noninteractive
 
-# Cài Boost và build-essential (chỉ những cái cần thiết)
+# Cài các dependencies cần thiết
 RUN apt-get update && \
     apt-get install -y \
     build-essential \
+    g++ \
     libboost-all-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy toàn bộ project
+# Tạo thư mục làm việc
+WORKDIR /app
+
+# Copy toàn bộ mã nguồn
 COPY . .
 
-# Biên dịch server (Linux build)
+# Biên dịch file C++
 RUN g++ server.cpp Solver.cpp -o server -pthread -I.
 
-# Khai báo port
+# Mặc định port
 ENV PORT=8080
 EXPOSE $PORT
 
-# Lệnh khởi chạy server
-CMD ./server
+# Khởi động server
+CMD ["./server"]
