@@ -41,23 +41,23 @@ The server will start listening on port 8080.
 **Request Body:**
 ```json
 {
-    "board": number[][],        // Mảng 2D (6x7) thể hiện trạng thái bàn cờ hiện tại
-    "current_player": number,   // 1: đi trước, 2: đi sau
-    "valid_moves": number[],    // Mảng các cột có thể đi được (0-6)
-    "is_new_game": boolean     // true nếu là lượt đầu tiên của ván mới
+    "board": number[][],        
+    "current_player": number,   
+    "valid_moves": number[],   
+    "is_new_game": boolean     
 }
 ```
 
 **Response:**
 ```json
 {
-    "move": number    // Cột sẽ đi (0-6)
+    "move": number  
 }
 ```
 
 **Example:**
 ```json
-// Request
+
 {
     "board": [
         [0,0,0,0,0,0,0],
@@ -72,7 +72,7 @@ The server will start listening on port 8080.
     "is_new_game": false
 }
 
-// Response
+
 {
     "move": 3
 }
