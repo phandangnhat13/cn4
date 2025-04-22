@@ -259,6 +259,7 @@ int main() {
             std::vector<std::vector<int>> board = data["board"];
             int current_player = data["current_player"];
             std::vector<int> valid_moves = data["valid_moves"];
+            bool is_new_game = data["is_new_game"];
 
             if (valid_moves.empty()) throw std::runtime_error("no valid moves");
 
@@ -267,7 +268,14 @@ int main() {
             std::cout << "Valid moves: ";
             for(int move : valid_moves) std::cout << move << " ";
             std::cout << std::endl;
+            std::cout << "Is new game: " << (is_new_game ? "true" : "false") << std::endl;
             printBoard(board);
+
+            // Reset state nếu là game mới
+            if (is_new_game) {
+                std::cout << "New game detected. Resetting state." << std::endl;
+                reset_state();
+            }
 
             // Đăng ký nước đi của đối thủ
             register_opponent_move(board);
